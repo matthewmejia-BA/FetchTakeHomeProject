@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct FetchTakeHomeProjectApp: App {
+    @State private var recipeViewModel = RecipeViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(recipeViewModel)
         }
     }
 }
