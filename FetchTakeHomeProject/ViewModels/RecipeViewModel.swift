@@ -13,24 +13,14 @@ final class RecipeViewModel {
     
     var recipes: [Recipe] = []
     var cuisineTypes: [String] = ["All"]
-//    {
-//        var cuisinesTypes: [String] = []
-//        
-//        let cuisines = recipes.map { $0.cuisine }
-//        
-//        for cuisine in cuisines {
-//            if !cuisinesTypes.contains( where: {$0 == cuisine} ) {
-//                cuisinesTypes.append(cuisine!)
-//            }
-//        }
-//        return cuisinesTypes
-//    }
     
     func getRecipes() async {
-       recipes = await RecipeDataService.getRecipes()
+        recipes = await RecipeDataService.getRecipes()
         
-        let cuisines = recipes.map({ $0.cuisine })
-        print(cuisines)
+        var cuisines = recipes.map({ $0.cuisine })
+        
+        //TODO: Replace force unwrap
+        cuisines.sort(by: {$0! < $1!} )
         for cuisine in cuisines {
             if !cuisineTypes.contains( where: {$0 == cuisine} ) {
                 cuisineTypes.append(cuisine!)
