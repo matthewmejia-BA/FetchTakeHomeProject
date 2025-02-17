@@ -12,9 +12,29 @@ import SwiftUI
 final class RecipeViewModel {
     
     var recipes: [Recipe] = []
+    var cuisineTypes: [String] = ["All"]
+//    {
+//        var cuisinesTypes: [String] = []
+//        
+//        let cuisines = recipes.map { $0.cuisine }
+//        
+//        for cuisine in cuisines {
+//            if !cuisinesTypes.contains( where: {$0 == cuisine} ) {
+//                cuisinesTypes.append(cuisine!)
+//            }
+//        }
+//        return cuisinesTypes
+//    }
     
     func getRecipes() async {
        recipes = await RecipeDataService.getRecipes()
-        print(recipes)
+        
+        let cuisines = recipes.map({ $0.cuisine })
+        print(cuisines)
+        for cuisine in cuisines {
+            if !cuisineTypes.contains( where: {$0 == cuisine} ) {
+                cuisineTypes.append(cuisine!)
+            }
+        }
     }
 }

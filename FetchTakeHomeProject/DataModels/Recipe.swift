@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct Recipe: Identifiable, Decodable {
-    var id: String?
+    var id: UUID?
     var cuisine: String?
     var name: String?
-    var photo_url_large: String?
-    var photo_url_small: String?
-    var source_url: String?
-    var youtube_url: String?
+    var photo_url_large: URL?
+    var photo_url_small: URL?
+    var source_url: URL?
+    var youtube_url: URL?
     
     enum CodingKeys: String, CodingKey {
         case id = "uuid"
