@@ -11,6 +11,10 @@ import SwiftUI
 @Observable
 final class RecipeViewModel {
     
+    var recipes: [Recipe] = []
     
-    
+    func getRecipes() async {
+       recipes = await RecipeDataService.getRecipes()
+        print(recipes)
+    }
 }
