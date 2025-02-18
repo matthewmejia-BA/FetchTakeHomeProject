@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct RecipeErrorView: View {
+    var errorMessage: String
     var body: some View {
-        VStack {
+        VStack(spacing: 10) {
             Image(systemName: "exclamationmark.triangle")
-            Text("We've encountered an error. Thank you for your patience as we work hard to resolve this issue.")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
+            Text("We've encountered an error: \(errorMessage).")
+            Text("Thank you for your patience as we work hard to resolve this issue.")
+                
         }
+        .multilineTextAlignment(.center)
+        .padding(.horizontal)
     }
 }

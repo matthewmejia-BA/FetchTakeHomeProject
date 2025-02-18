@@ -11,7 +11,14 @@ import SwiftUI
 @Observable
 final class RecipeViewModel {
     
-    var recipes: [Recipe] = []
+    enum Status {
+        case success([Recipe])
+        case failed(String)
+    }
+    
+    var recipeStatus: Status?
+    
+    private var recipes: [Recipe] = []
     var errorMessage = ""
     var cuisineTypes: [String] {
         let mappedCuisines = recipes.map({ $0.cuisine })
@@ -23,13 +30,14 @@ final class RecipeViewModel {
     }
     
     func getRecipes() async {
+        guard recipeStatus == nil else { return }
         do {
             let foundRecipes = try await RecipeDataService.getRecipes()
-            recipes = foundRecipes
-        } catch(let error as DecodingError) {
-            errorMessage = error.localizedDescription
+            recipeStatus = .success(foundRecipes)
+        } catch(let error as DecodingError)  {
+            recipeStatus = .failed(error.localizedDescription)
         } catch {
-            print("unknown error")
+            recipeStatus = .failed("Unknown error occured")
         }
     }
 }

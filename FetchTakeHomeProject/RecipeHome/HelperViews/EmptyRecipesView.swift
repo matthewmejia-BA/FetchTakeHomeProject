@@ -17,8 +17,13 @@ struct EmptyRecipesView: View {
     }
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(spacing: 10) {
+            Image(systemName: "square.stack.3d.up.slash.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 50, height: 50)
             Text(plainText + tappableText)
+                .multilineTextAlignment(.center)
         }
     }
 }

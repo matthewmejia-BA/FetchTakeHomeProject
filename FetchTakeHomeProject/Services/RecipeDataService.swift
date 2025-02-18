@@ -33,8 +33,8 @@ class RecipeDataService {
                 }
                 let decoder = JSONDecoder()
                 let recipeData = try decoder.decode(RecipeData.self, from: data)
-                print(recipeData)
                 recipes = recipeData.recipes
+                print(recipes)
             }
         } catch {
             throw(DecodingError.malformedJson)

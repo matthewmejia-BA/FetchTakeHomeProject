@@ -7,6 +7,6 @@
 
 import SwiftUI
 
-struct RecipeData: Decodable {
+struct RecipeData: Codable {
     var recipes: [Recipe]
 }

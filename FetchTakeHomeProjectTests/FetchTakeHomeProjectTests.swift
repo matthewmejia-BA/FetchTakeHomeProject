@@ -40,7 +40,7 @@ struct APITests {
                 let (data, _) = try await urlSession.data(from: url)
                 let decoder = JSONDecoder()
                 let recipeData = try decoder.decode(RecipeData.self, from: data)
-                #expect(recipeData != nil)
+                #expect(recipeData.recipes != nil)
             }
         } catch {
             
