@@ -12,6 +12,8 @@ struct ContentView: View {
     
     private let recipeViewModel = RecipeViewModel()
     @State private var selectedCuisines: String = "All"
+    @State private var searchQuery: String = ""
+    @State private var tabSelectionIndex = 0
     private var searchResults: [Recipe] {
         
         //TODO: Remove force unwrap
@@ -26,8 +28,6 @@ struct ContentView: View {
             return filteredResults
         }
     }
-    @State private var searchQuery: String = ""
-    @State private var tabSelectionIndex = 0
     
     var body: some View {
         
@@ -49,7 +49,7 @@ struct ContentView: View {
                 }
                 
                 List(searchResults) { recipe in
-                    HStack {
+                    HStack(spacing: 10) {
                         if let smallImageURL = recipe.photo_url_small {
                             AsyncImage(url: smallImageURL) { image in
                                 switch image {

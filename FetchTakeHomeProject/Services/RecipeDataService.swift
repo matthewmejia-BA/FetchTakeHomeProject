@@ -16,22 +16,17 @@ class RecipeDataService {
         
         do {
             if let url {
-                
-                let (data, response) = try await URLSession.shared.data(from: url)
+                let (data, _) = try await URLSession.shared.data(from: url)
                 let decoder = JSONDecoder()
-                
                 let recipeData = try decoder.decode(RecipeData.self, from: data)
-                    
                 if let foundRecipes = recipeData.recipes {
                     recipes = foundRecipes
                 }
             }
-            
         } catch {
             //TODO: Set up networking error
             print(error)
         }
-        
         return recipes
     }
 }
