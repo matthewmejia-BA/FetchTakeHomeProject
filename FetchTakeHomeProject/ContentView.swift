@@ -14,13 +14,15 @@ struct ContentView: View {
     @State private var selectedCuisines: String = "All"
     private var searchResults: [Recipe] {
         
+        //TODO: Remove force unwrap
+        
         if searchQuery.isEmpty && selectedCuisines == "All" {
             return recipeViewModel.recipes
-        } else if !searchQuery.isEmpty && selectedCuisines == "All" {
+        } else if !searchQuery.isEmpty {
             let filteredResults = recipeViewModel.recipes.filter({$0.name!.contains(searchQuery)})
             return filteredResults
         } else {
-            let filteredResults = recipeViewModel.recipes.filter({$0.name!.contains(searchQuery) && $0.cuisine!.contains(selectedCuisines)})
+            let filteredResults = recipeViewModel.recipes.filter({ $0.cuisine!.contains(selectedCuisines)})
             return filteredResults
         }
     }
@@ -31,17 +33,20 @@ struct ContentView: View {
         
         NavigationStack {
             VStack(alignment: .leading, spacing: 5) {
-                HStack(spacing: 5) {
-                    Text("Cuisine Type")
-                    Picker("", selection: $selectedCuisines) {
-                        ForEach(recipeViewModel.cuisineTypes, id: \.self) {cuisine in
-                            Text(cuisine)
-                                .tag(cuisine)
+                
+                if searchQuery.isEmpty {
+                    HStack(spacing: 5) {
+                        Text("Cuisine Type:")
+                        Picker("", selection: $selectedCuisines) {
+                            ForEach(recipeViewModel.cuisineTypes, id: \.self) {cuisine in
+                                Text(cuisine)
+                                    .tag(cuisine)
+                            }
                         }
+                        
                     }
-                    
+                    .padding(.horizontal)
                 }
-                .padding(.horizontal)
                 
                 List(searchResults) { recipe in
                     HStack {
@@ -85,7 +90,7 @@ struct ContentView: View {
                         }
                     }
                 }
-                .searchable(text: $searchQuery)
+                .searchable(text: $searchQuery).disabled(selectedCuisines != "All")
             }
             .navigationTitle("Recipes")
         }
