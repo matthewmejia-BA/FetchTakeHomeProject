@@ -49,48 +49,48 @@ struct RecipeHomeView: View {
                         .padding(.horizontal)
                     }
                     
-                    List(searchResults) { recipe in
-                        HStack(spacing: 10) {
-                            if let smallImageURL = recipe.photo_url_small {
-                                AsyncImage(url: smallImageURL) { image in
-                                    switch image {
-                                    case .empty:
-                                        Image(systemName: "photo")
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                        
-                                    case .success(let image):
-                                        image
-                                            .resizable()
-                                            .scaledToFill()
-                                            .frame(width: 50, height: 50, alignment: .center)
-                                            .clipped()
-                                            .cornerRadius(5)
-                                    case .failure(let error):
-                                        VStack {
-                                            Image(systemName: "x.circle")
-                                                .foregroundStyle(.red)
-                                            Text(String(describing: error))
-                                        }
-                                    @unknown default:
-                                        Text("Unknown error occured")
-                                    }
-                                }
-                            }
-                            
-                            VStack(alignment: .leading) {
-                                
-                                Text(recipe.name)
-                                    .bold()
-                                
-                                
-                                Text(recipe.cuisine)
-                                    .font(.caption)
-                            }
-                        }
-                    }
-                    .searchable(text: $searchQuery).disabled(selectedCuisines != "All")
+//                    List(searchResults) { recipe in
+//                        HStack(spacing: 10) {
+//                            if let smallImageURL = recipe.photo_url_small {
+//                                AsyncImage(url: smallImageURL) { image in
+//                                    switch image {
+//                                    case .empty:
+//                                        Image(systemName: "photo")
+//                                            .resizable()
+//                                            .scaledToFill()
+//                                            .frame(width: 50, height: 50, alignment: .center)
+//                                        
+//                                    case .success(let image):
+//                                        image
+//                                            .resizable()
+//                                            .scaledToFill()
+//                                            .frame(width: 50, height: 50, alignment: .center)
+//                                            .clipped()
+//                                            .cornerRadius(5)
+//                                    case .failure(let error):
+//                                        VStack {
+//                                            Image(systemName: "x.circle")
+//                                                .foregroundStyle(.red)
+//                                            Text(String(describing: error))
+//                                        }
+//                                    @unknown default:
+//                                        Text("Unknown error occured")
+//                                    }
+//                                }
+//                            }
+//                            
+//                            VStack(alignment: .leading) {
+//                                
+//                                Text(recipe.name)
+//                                    .bold()
+//                                
+//                                
+//                                Text(recipe.cuisine)
+//                                    .font(.caption)
+//                            }
+//                        }
+//                    }
+//                    .searchable(text: $searchQuery).disabled(selectedCuisines != "All")
                 }
             }
             .navigationTitle("Recipes")

@@ -10,6 +10,10 @@ enum DecodingError: Error {
     case malformedJson
 }
 
+enum ResponseError: Error {
+    case badURL
+}
+
 class RecipeDataService {
     
     // Call from view model
@@ -23,7 +27,10 @@ class RecipeDataService {
         
         do {
             if let url {
-                let (data, _) = try await session.data(from: url)
+                let (data, response) = try await session.data(from: url)
+                guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                    throw ResponseError.badURL
+                }
                 let decoder = JSONDecoder()
                 let recipeData = try decoder.decode(RecipeData.self, from: data)
                 print(recipeData)

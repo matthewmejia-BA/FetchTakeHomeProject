@@ -33,9 +33,24 @@
 		42E7152B2D61491A00509949 /* FetchTakeHomeProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchTakeHomeProjectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		42A7515F2D650F3400E0D634 /* Exceptions for "FetchTakeHomeProject" folder in "FetchTakeHomeProjectTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Constants.swift,
+				DataModels/Recipe.swift,
+				DataModels/RecipeData.swift,
+			);
+			target = 42E715202D61491A00509949 /* FetchTakeHomeProjectTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		42E715132D61491700509949 /* FetchTakeHomeProject */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				42A7515F2D650F3400E0D634 /* Exceptions for "FetchTakeHomeProject" folder in "FetchTakeHomeProjectTests" target */,
+			);
 			path = FetchTakeHomeProject;
 			sourceTree = "<group>";
 		};

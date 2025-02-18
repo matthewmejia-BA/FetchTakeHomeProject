@@ -5,32 +5,45 @@
 //  Created by BrilyanteApps on 2/15/25.
 //
 
-import XCTest
+/// Trying new Swift Testing in lieu of XCTests
+///
+
+import Testing
+import SwiftUI
+
 @testable import FetchTakeHomeProject
 
-final class FetchTakeHomeProjectTests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+struct APITests {
+    private var urlSession: URLSession
+    init() {
+        urlSession = URLSession(configuration: .default)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    @Test func apiValid() async throws {
+        //Testing to make sure that url is valid and we get a succesfull status code
+        let url = Constants.prodDataURL
+        do {
+            if let url {
+                let (_, response) = try await urlSession.data(from: url)
+                #expect((response as? HTTPURLResponse)?.statusCode == 200)
+            }
+        } catch {
+            
         }
     }
-
+    
+    @Test func jsonValid() async throws {
+        // Testing to make sure json id decoded properly with our data object
+        let url = Constants.prodDataURL
+        do {
+            if let url {
+                let (data, _) = try await urlSession.data(from: url)
+                let decoder = JSONDecoder()
+                let recipeData = try decoder.decode(RecipeData.self, from: data)
+                #expect(recipeData != nil)
+            }
+        } catch {
+            
+        }
+    }
 }
