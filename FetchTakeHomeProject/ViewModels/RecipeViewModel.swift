@@ -12,18 +12,24 @@ import SwiftUI
 final class RecipeViewModel {
     
     var recipes: [Recipe] = []
+    var errorMessage = ""
     var cuisineTypes: [String] {
         let mappedCuisines = recipes.map({ $0.cuisine })
         var cuisines: Set<String> = ["All"]
             for cuisine in mappedCuisines {
-                if let cuisine {
                     cuisines.insert(cuisine)
-                }
             }
         return cuisines.sorted()
     }
     
     func getRecipes() async {
-        recipes = await RecipeDataService.getRecipes()
+        do {
+            let foundRecipes = try await RecipeDataService.getRecipes()
+            recipes = foundRecipes
+        } catch(let error as DecodingError) {
+            errorMessage = error.localizedDescription
+        } catch {
+            print("unknown error")
+        }
     }
 }

@@ -6,26 +6,31 @@
 //
 import SwiftUI
 
+enum DecodingError: Error {
+    case malformedJson
+}
+
 class RecipeDataService {
     
     // Call from view model
-    static func getRecipes() async -> [Recipe] {
+    static func getRecipes() async throws -> [Recipe] {
         
-        let url = URL(string:  "https://d3jbb8n5wk0qxi.cloudfront.net/recipes.json")
+        let url = Constants.prodDataURL
+        
         var recipes: [Recipe] = []
+        
+        let session = URLSession(configuration: .default)
         
         do {
             if let url {
-                let (data, _) = try await URLSession.shared.data(from: url)
+                let (data, _) = try await session.data(from: url)
                 let decoder = JSONDecoder()
                 let recipeData = try decoder.decode(RecipeData.self, from: data)
-                if let foundRecipes = recipeData.recipes {
-                    recipes = foundRecipes
-                }
+                print(recipeData)
+                recipes = recipeData.recipes
             }
         } catch {
-            //TODO: Set up networking error
-            print(error)
+            throw(DecodingError.malformedJson)
         }
         return recipes
     }

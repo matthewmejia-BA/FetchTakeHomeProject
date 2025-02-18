@@ -8,7 +8,5 @@
 import SwiftUI
 
 struct RecipeData: Decodable {
-    
-    var recipes: [Recipe]?
-    
+    var recipes: [Recipe]
 }

@@ -12,7 +12,7 @@ struct FetchTakeHomeProjectApp: App {
     @State private var recipeViewModel = RecipeViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RecipeHomeView()
                 .environment(recipeViewModel)
         }
     }

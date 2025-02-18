@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct Recipe: Identifiable, Decodable {
-    var id: UUID?
-    var cuisine: String?
-    var name: String?
+struct Recipe: Identifiable, Codable {
+    var id: UUID
+    var cuisine: String
+    var name: String
     var photo_url_large: URL?
     var photo_url_small: URL?
     var source_url: URL?
@@ -25,5 +25,4 @@ struct Recipe: Identifiable, Decodable {
         case source_url = "source_url"
         case youtube_url = "youtube_url"
     }
-                        
 }
