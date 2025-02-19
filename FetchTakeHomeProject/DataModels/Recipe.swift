@@ -11,10 +11,10 @@ struct Recipe: Identifiable, Codable {
     var id: UUID
     var cuisine: String
     var name: String
-    var photo_url_large: String?
-    var photo_url_small: String?
-    var source_url: String?
-    var youtube_url: String?
+    var photo_url_large: URL?
+    var photo_url_small: URL?
+    var source_url: URL?
+    var youtube_url: URL?
     
     private enum CodingKeys: String, CodingKey {
         case id = "uuid"
@@ -34,9 +34,9 @@ extension Recipe {
         id = try values.decode(UUID.self, forKey: .id)
         cuisine = try values.decode(String.self, forKey: .cuisine)
         name = try values.decode(String.self, forKey: .name)
-        photo_url_large = try values.decode(String.self, forKey: .photo_url_large)
-        photo_url_small = try values.decode(String.self, forKey: .photo_url_small)
-        source_url = try values.decodeIfPresent(String.self, forKey: .source_url)
-        youtube_url = try values.decodeIfPresent(String.self, forKey: .youtube_url)
+        photo_url_large = try values.decode(URL.self, forKey: .photo_url_large)
+        photo_url_small = try values.decode(URL.self, forKey: .photo_url_small)
+        source_url = try values.decodeIfPresent(URL.self, forKey: .source_url)
+        youtube_url = try values.decodeIfPresent(URL.self, forKey: .youtube_url)
     }
 }
