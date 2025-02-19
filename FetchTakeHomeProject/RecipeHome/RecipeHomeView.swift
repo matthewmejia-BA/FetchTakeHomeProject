@@ -59,13 +59,12 @@ struct RecipeHomeView: View {
                         } else {
                             Text("No recipes found. Try another search.")
                         }
-                        Spacer()
                     }
-                    .searchable(text: $searchQuery)
+                    
                     
                 case .failed(let error):
                     RecipeErrorView(errorMessage: error)
-                
+                    
                 case .empty:
                     EmptyRecipesView()
                     
@@ -73,10 +72,21 @@ struct RecipeHomeView: View {
                     ProgressView()
                 }
             }
+            .searchable(text: $searchQuery)
             .navigationTitle("Recipes")
             .task {
                 await recipeViewModel.getRecipes()
             }
+            .safeAreaInset(edge: .bottom) {
+                //TODO: Fix color grading between dark and light mode
+                Rectangle()
+                    .fill(LinearGradient(colors: [.white, .white.opacity(0)],
+                                         startPoint: .bottom,
+                                         endPoint: .top))
+                    .frame(height: 90)
+                    .padding(.bottom, 50)
+            }
+            .edgesIgnoringSafeArea(.bottom)
         }
         .refreshable {
             Task {

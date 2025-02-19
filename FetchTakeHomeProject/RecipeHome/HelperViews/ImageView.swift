@@ -10,6 +10,8 @@ import SwiftUI
 struct ImageView: View {
     var url: URL?
     
+    //TODO: Create caching of images
+    
     var body: some View {
         if let url {
             AsyncImage(

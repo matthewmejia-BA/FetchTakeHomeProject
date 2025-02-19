@@ -16,6 +16,7 @@ struct RecipesView: View {
                 RecipeRowView(recipe: recipe)
             }
         }
+        .safeAreaPadding(.top, 5)
         .safeAreaPadding(.horizontal)
     }
 }
