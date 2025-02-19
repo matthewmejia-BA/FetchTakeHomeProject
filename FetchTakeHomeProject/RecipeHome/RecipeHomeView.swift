@@ -35,23 +35,44 @@ struct RecipeHomeView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 5) {
+            VStack(alignment: .leading, spacing: 0) {
                 switch recipeViewModel.recipeStatus {
                 case .success:
-                    VStack(spacing: 0) {
-                        HStack(spacing: 5) {
-                            Text("Cuisine Type:")
-                            Picker("", selection: $selectedCuisines) {
-                                ForEach(
-                                    recipeViewModel.cuisineTypes,
-                                    id: \.self
-                                ) {cuisine in
-                                    Text(cuisine)
-                                        .tag(cuisine)
+                    VStack(alignment: .leading, spacing: 0) {
+                        HStack {
+                            Text("Filter cuisines: ")
+                                .foregroundStyle(.black)
+                            Menu {
+                                ForEach(recipeViewModel.cuisineTypes, id: \.self) { cuisine in
+                                    Button {
+                                        selectedCuisines = cuisine
+                                    } label: {
+                                        HStack {
+                                            Text(cuisine)
+                                        }
+                                    }
+                                }
+                            } label: {
+                                HStack(spacing: 0) {
+                                    Text(selectedCuisines)
+                                    Image(systemName: "chevron.down")
                                 }
                             }
                         }
                         .padding(.horizontal)
+//                        HStack(spacing: 5) {
+//                            Text("Cuisine Type:")
+//                            Picker("", selection: $selectedCuisines) {
+//                                ForEach(
+//                                    recipeViewModel.cuisineTypes,
+//                                    id: \.self
+//                                ) {cuisine in
+//                                    Text(cuisine)
+//                                        .tag(cuisine)
+//                                }
+//                            }
+//                        }
+//                        .padding(.horizontal)
                         
                         Spacer()
                         if !searchResults.isEmpty {
@@ -73,7 +94,6 @@ struct RecipeHomeView: View {
                 }
             }
             .searchable(text: $searchQuery)
-            .navigationTitle("Recipes")
             .task {
                 await recipeViewModel.getRecipes()
             }
@@ -87,6 +107,16 @@ struct RecipeHomeView: View {
                     .padding(.bottom, 50)
             }
             .edgesIgnoringSafeArea(.bottom)
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Text("Recipes")
+                        .font(.title)
+                        .bold()
+                        .safeAreaPadding(.horizontal, 5)
+                        .safeAreaPadding([.top, .bottom])
+                }
+                
+            }
         }
         .refreshable {
             Task {
