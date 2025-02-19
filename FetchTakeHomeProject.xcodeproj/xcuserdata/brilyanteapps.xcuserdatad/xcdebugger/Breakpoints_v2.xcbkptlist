@@ -3,4 +3,52 @@
    uuid = "0E5DCCF3-2ACD-431A-B5E7-EB7E2EED8F12"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A19791A6-3878-4BE6-BDE6-FD2D167E29A9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FetchTakeHomeProject/ViewModels/RecipeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "getRecipes()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A19791A6-3878-4BE6-BDE6-FD2D167E29A9 - b163a59f372fcc2c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FetchTakeHomeProject.RecipeViewModel.getRecipes() async -&gt; ()"
+                  moduleName = "FetchTakeHomeProject.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brilyanteapps/Desktop/FetchTakeHomeProject/FetchTakeHomeProject/ViewModels/RecipeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36">
+               </Location>
+               <Location
+                  uuid = "A19791A6-3878-4BE6-BDE6-FD2D167E29A9 - ef0cb09fb9c17ad3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for FetchTakeHomeProject.RecipeViewModel.getRecipes() async -&gt; ()"
+                  moduleName = "FetchTakeHomeProject.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brilyanteapps/Desktop/FetchTakeHomeProject/FetchTakeHomeProject/ViewModels/RecipeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
