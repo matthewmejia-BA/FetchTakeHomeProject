@@ -9,10 +9,22 @@ import SwiftUI
 
 struct HomeTabView: View {
     var body: some View {
-        TabView {
-            Tab("Home", systemImage: "house") {
+        
+        if #available(iOS 18.0, *) {
+            TabView {
+                Tab("Home", systemImage: "house") {
+                    RecipeHomeView()
+                }
+               
+            }
+        } else {
+            TabView {
                 RecipeHomeView()
+                    .tabItem {
+                        Image(systemName: "house")
+                    }
             }
         }
     }
 }
+
