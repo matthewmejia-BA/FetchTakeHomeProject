@@ -14,6 +14,7 @@ struct RecipeHomeView: View {
     @Environment(RecipeViewModel.self) private var recipeViewModel
     @State private var selectedCuisines: String = "All"
     @State private var searchQuery: String = ""
+    @State private var showRandomRecipe = false
     
     private var searchResults: [Recipe] {
         switch recipeViewModel.recipeStatus {
@@ -39,13 +40,17 @@ struct RecipeHomeView: View {
             VStack(alignment: .leading, spacing: 0) {
                 switch recipeViewModel.recipeStatus {
                 case .success:
-                    VStack(alignment: .leading, spacing: 0) {
-                        FilterCuisinesMenu(selectedCuisines: $selectedCuisines, cuisinesTypes: recipeViewModel.cuisineTypes)
-                        Spacer()
-                        if !searchResults.isEmpty {
-                            RecipesView(recipes: searchResults)
-                        } else {
-                            Text("No recipes found. Try another search.")
+                    if showRandomRecipe {
+                        RandomRecipeView(recipe: searchResults.randomElement()!)
+                    } else {
+                        VStack(alignment: .leading, spacing: 0) {
+                            FilterCuisinesMenu(selectedCuisines: $selectedCuisines, cuisinesTypes: recipeViewModel.cuisineTypes)
+                            Spacer()
+                            if !searchResults.isEmpty {
+                                RecipesView(recipes: searchResults)
+                            } else {
+                                Text("No recipes found. Try another search.")
+                            }
                         }
                     }
                     
@@ -82,6 +87,14 @@ struct RecipeHomeView: View {
                         .safeAreaPadding(.horizontal, 5)
                         .safeAreaPadding([.top, .bottom])
                 }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button {
+                        showRandomRecipe.toggle()
+                    } label: {
+                        //Image(systemName: "shuffle.circle")
+                        Text(showRandomRecipe ? "Back to list" : "Random")
+                    }
+                }
             }
         }
         .refreshable {
@@ -95,4 +108,5 @@ struct RecipeHomeView: View {
 
 #Preview {
     RecipeHomeView()
+        .environment(RecipeViewModel())
 }

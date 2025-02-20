@@ -8,14 +8,14 @@ import SwiftUI
 
 extension Image {
     
-    func smallPhotoModifier() -> some View {
+    func photoModifier(large: Bool) -> some View {
         self
             .resizable()
             .scaledToFit()
             .clipShape(RoundedRectangle(cornerRadius: 5))
             .frame(
-                width: 75,
-                height: 75,
+                width: large ? 300 : 75,
+                height: large ? 400 : 75,
                 alignment: .center
             )
     }

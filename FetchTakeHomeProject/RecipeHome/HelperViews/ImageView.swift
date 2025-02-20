@@ -16,16 +16,17 @@ struct ImageView: View {
     var body: some View {
         VStack {
             AsyncImage(url: dataURL) { phase in
+                
                 switch phase {
                 case .empty:
                     Image(systemName: "photo")
-                        .smallPhotoModifier()
+                        .photoModifier(large: (url?.lastPathComponent.localizedCaseInsensitiveContains("large"))! ? true : false)
                 case .success(let image):
                     image
-                        .smallPhotoModifier()
+                        .photoModifier(large: (url?.lastPathComponent.localizedCaseInsensitiveContains("large"))! ? true : false)
                 case .failure:
                     Image(systemName: "exclamationmark.triangle")
-                        .smallPhotoModifier()
+                        .photoModifier(large: (url?.lastPathComponent.localizedCaseInsensitiveContains("large"))! ? true : false)
                 default:
                     ProgressView()
                 }
@@ -41,6 +42,8 @@ struct ImageView: View {
         Task {
             let (imageData, _) = try await URLSession.shared.data(from: url)
             dataURL = URL(string: "data:image/png;base64," + imageData.base64EncodedString())
+            print(dataURL as Any)
         }
     }
 }
+
