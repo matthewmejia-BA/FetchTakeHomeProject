@@ -9,45 +9,28 @@ import SwiftUI
 
 struct ImageView: View {
     var url: URL?
-    
-    //TODO: Create caching of images
+    @State private var image = UIImage()
     
     var body: some View {
-        if let url {
-            AsyncImage(
-                url: url
-            ) { image in
-                switch image {
-                case .empty:
-                    Image(systemName: "photo")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: 50,
-                            height: 50,
-                            alignment: .center
-                        )
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(
-                            width: 50,
-                            height: 50,
-                            alignment: .center
-                        )
-                        .clipped()
-                        .cornerRadius(5)
-                case .failure(let error):
-                    VStack {
-                        Image(systemName: "x.circle")
-                            .foregroundStyle(.red)
-                        Text(String(describing: error))
-                    }
-                @unknown default:
-                    Text("Unknown error occured")
-                }
+        
+        Image(uiImage: image)
+            .resizable()
+            .scaledToFit()
+            .frame(
+                width: 50,
+                height: 50,
+                alignment: .center
+            )
+            .task {
+                loadImage()
             }
+    }
+    
+    func loadImage() {
+        guard let url = url else { return }
+        Task {
+            let (imageData, _) = try await URLSession.shared.data(from: url)
+            image = UIImage(data: imageData)!
         }
     }
 }
