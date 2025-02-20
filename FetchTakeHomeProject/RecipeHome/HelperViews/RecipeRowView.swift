@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeRowView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     var recipe: Recipe
     
     var body: some View {
@@ -26,11 +27,29 @@ struct RecipeRowView: View {
                         .font(.caption)
                 }
                 Spacer()
+                
+                VStack {
+                    if let youtube_url = recipe.youtube_url {
+                        Link(destination: youtube_url) {
+                            Image(systemName: "play.rectangle.fill")
+                                .logoModifier()
+                                .foregroundStyle(.red)
+                        }
+                    }
+                    if let source_url = recipe.source_url {
+                        Link(destination: source_url) {
+                            Image(systemName: "safari")
+                                .logoModifier()
+                                .foregroundStyle(.blue)
+                        }
+                    }
+                }
             }
+            .foregroundStyle(.black)
             .padding()
-            .background(Color(.systemBackground))
+            .background(colorScheme == .dark ? .gray: . white)
             .cornerRadius(12)
-            .shadow(color: .black.opacity(0.25), radius: 3, x: 0, y: 1)
+            .shadow(color: colorScheme == .dark ? .white.opacity(0.25) : .black.opacity(0.25), radius: 3, x: 0, y: 1)
         }
     }
 }

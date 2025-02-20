@@ -8,13 +8,15 @@
 import SwiftUI
 
 struct FilterCuisinesMenu: View {
+    
     @Binding var selectedCuisines: String
     var cuisinesTypes: [String]
     
     var body: some View {
         HStack {
             Text("Filter cuisines: ")
-                .foregroundStyle(.black)
+            
+            // Menu picker for selected cuisine
             Menu {
                 ForEach(cuisinesTypes, id: \.self) { cuisine in
                     Button {

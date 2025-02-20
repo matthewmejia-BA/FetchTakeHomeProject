@@ -6,7 +6,6 @@
 //
 
 /// Trying new Swift Testing in lieu of XCTests
-///
 
 import Testing
 import SwiftUI
@@ -33,7 +32,7 @@ struct APITests {
     }
     
     @Test func jsonValid() async throws {
-        // Testing to make sure json id decoded properly with our data object
+        // Testing to make sure json is decoded properly with our data object
         let url = Constants.prodDataURL
         do {
             if let url {

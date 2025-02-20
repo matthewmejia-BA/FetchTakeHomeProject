@@ -10,6 +10,7 @@ import Algorithms
 
 struct RecipeHomeView: View {
     
+    @Environment(\.colorScheme) var colorScheme
     @Environment(RecipeViewModel.self) private var recipeViewModel
     @State private var selectedCuisines: String = "All"
     @State private var searchQuery: String = ""
@@ -65,9 +66,10 @@ struct RecipeHomeView: View {
             .safeAreaInset(edge: .bottom) {
                 //TODO: Fix color grading between dark and light mode
                 Rectangle()
-                    .fill(LinearGradient(colors: [.white, .white.opacity(0)],
-                                         startPoint: .bottom,
-                                         endPoint: .top))
+                    .fill(LinearGradient(
+                        colors: colorScheme == .dark ? [.black, .black.opacity(0)] : [.white, .white.opacity(0)],
+                        startPoint: .bottom,
+                        endPoint: .top))
                     .frame(height: 90)
                     .padding(.bottom, 50)
             }
