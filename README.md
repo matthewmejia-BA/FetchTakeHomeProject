@@ -7,12 +7,15 @@
 - ✅ No External Dependencies: Only Apple frameworks 
 - ✅ Efficient Network Usage: Caching of images. Only hit network when needed
 - ✅ Testing: Unit testing for valid api and json decoding
-- ✅ SwiftUI: SwiftUI flow and api's. 
+- ✅ SwiftUI: SwiftUI flow and api's.
+- ✅ Handle errors if malformed json or empty data
 
 ### Resources
 1) https://matteomanferdini.com/swiftui-asyncimage/
 
 ### Summary: Include screen shots or a video of your app highlighting its features
+
+
 
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 I chose to prioritize the UI and the logic of utlizing both the search bar and filter of recipes. I wanted to provide a seamless experience, allowing the user to fine tune their search. 
@@ -31,8 +34,6 @@ I wanted to use modern SwiftUI and with the latest Swift 6 version that helps wi
 
 ### Weakest Part of the Project: What do you think is the weakest part of your project?
 I think my weakest part is Unit Testing. I don't have a ton of experience in that setting, although I am looking to dive deeper into it and gain more skills. I tried to implement a couple test cases: 1) Valid api / http response status code, and 2) Valid json data decoding.
-
-Another weakenss is the lack of mock data for previews. 
 
 ### Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
 You will notice my repo and project is written by BrilyanteApps, which is my business. I am sole proprietor, all the work in this project was done by me, Matthew Mejia. 
