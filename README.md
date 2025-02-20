@@ -14,16 +14,21 @@
 1) https://matteomanferdini.com/swiftui-asyncimage/
 
 ### Summary: Include screen shots or a video of your app highlighting its features
-Main screen
+
+##Main screen
+
 <img width="471" alt="Screenshot 2025-02-20 at 4 44 24 PM" src="https://github.com/user-attachments/assets/27fcf5b5-7d62-42ab-b7d3-d5496cefac43" />
 
-Cuisine Types
+##Cuisine Types
+
 <img width="471" alt="Screenshot 2025-02-20 at 4 46 04 PM" src="https://github.com/user-attachments/assets/9dc6efc5-79a5-440b-9720-aab12707d584" />
 
-Search Query + Cuisine Type
+##Search Query + Cuisine Type
+
 <img width="471" alt="Screenshot 2025-02-20 at 4 46 19 PM" src="https://github.com/user-attachments/assets/b83331a8-ac9d-4632-b328-136c2d216c74" />
 
-Random Recipe Feature
+##Random Recipe Feature
+
 <img width="471" alt="Screenshot 2025-02-20 at 4 45 17 PM" src="https://github.com/user-attachments/assets/fce162a3-8a5f-45ab-bb76-2ce6d3cf727b" />
 
 ### Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
