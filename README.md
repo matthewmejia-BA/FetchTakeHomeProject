@@ -1,9 +1,9 @@
 ### Project Requirements Checklist
-✅ Swift Concurrency: Use of async / await for network requests, image loading, data loading
-✅ No External Dependencies: Only Apple frameworks 
-✅ Efficient Network Usage: Caching of images. Only hit network when needed
-✅ Testing: Unit testing for valid api and json decoding
-✅ SwiftUI: SwiftUI flow and api's. 
+- ✅ Swift Concurrency: Use of async / await for network requests, image loading, data loading
+- ✅ No External Dependencies: Only Apple frameworks 
+- ✅ Efficient Network Usage: Caching of images. Only hit network when needed
+- ✅ Testing: Unit testing for valid api and json decoding
+- ✅ SwiftUI: SwiftUI flow and api's. 
 
 
 ### Resources
