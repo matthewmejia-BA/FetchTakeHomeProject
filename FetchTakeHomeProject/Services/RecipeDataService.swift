@@ -19,7 +19,7 @@ class RecipeDataService {
     // Call from view model
     static func getRecipes() async throws -> [Recipe] {
         
-        let url = Constants.emptyDataURL
+        let url = Constants.prodDataURL
         
         var recipes: [Recipe] = []
         
