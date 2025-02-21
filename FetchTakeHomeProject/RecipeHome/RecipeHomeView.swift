@@ -58,7 +58,7 @@ struct RecipeHomeView: View {
                     RecipeErrorView(errorMessage: error)
                     
                 case .empty:
-                    EmptyRecipesView()
+                    EmptyRecipesView(recipeViewModel: recipeViewModel)
                     
                 default:
                     ProgressView()

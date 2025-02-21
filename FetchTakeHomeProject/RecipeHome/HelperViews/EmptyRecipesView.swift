@@ -9,12 +9,8 @@ import SwiftUI
 
 struct EmptyRecipesView: View {
     
-    private var tappableText = AttributedString("refresh the page")
-    private var plainText = AttributedString("No recipes available. Please check back soon or ")
-    
-    init() {
-        tappableText.foregroundColor = .blue
-    }
+    var recipeViewModel: RecipeViewModel
+    private let plainText = AttributedString("No recipes available. Please check back soon or ")
     
     var body: some View {
         VStack(spacing: 10) {
@@ -22,8 +18,15 @@ struct EmptyRecipesView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 50, height: 50)
-            Text(plainText + tappableText)
-                .multilineTextAlignment(.center)
+            
+            Text(plainText)
+            Button("refresh the page") {
+                Task {
+                    await recipeViewModel.getRecipes()
+                }
+            }
+            .foregroundStyle(.blue)
         }
+        .multilineTextAlignment(.center)
     }
 }
