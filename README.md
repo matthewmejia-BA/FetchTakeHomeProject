@@ -37,6 +37,12 @@
 ### Malformed JSON data
 <img width="471" alt="Screenshot 2025-02-20 at 4 54 04 PM" src="https://github.com/user-attachments/assets/9bf4bd60-70d5-4914-bc2d-d42288115b9c" />
 
+### Tapping Youtube Link
+<img width="471" alt="Screenshot 2025-02-20 at 5 06 21 PM" src="https://github.com/user-attachments/assets/226e05b0-decd-4453-8c49-9e57ea1d4370" />
+
+### Tapping Safari Link
+<img width="471" alt="Screenshot 2025-02-20 at 5 07 02 PM" src="https://github.com/user-attachments/assets/3242ae78-81ee-413f-9693-55c8515ce939" />
+
 
 ## Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 I chose to prioritize the UI and the logic of utilizing both the search bar and filter of recipes. I wanted to provide a seamless experience, allowing the user to fine tune their search. 
@@ -54,8 +60,10 @@ I prioritized my downtime to work on this app, usually during work breaks, lunch
 I wanted to use modern SwiftUI and with the latest Swift 6 version that helps with concurrency. Unfortunatley the tradeoff with this approach is that earlier iOS versions ( < 17.0 ) aren't compatible. 
 
 ## Weakest Part of the Project: What do you think is the weakest part of your project?
-I think my weakest part is Unit Testing. I don't have a ton of experience in that setting, although I am looking to dive deeper into it. I tried to implement a couple test cases: 1) Valid api / http response status code, and 2) Valid json data decoding. I would probably add abother test case about caching of images.
+I think my weakest part is Unit Testing. I don't have a ton of experience in that setting, although I am looking to dive deeper into it. I tried to implement a couple test cases: 1) Valid api / http response status code, and 2) Valid json data decoding. I would probably add another test case about caching of images.
 
 ## Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
 You will notice my repo and project is written by BrilyanteApps, which is my business. I am a sole proprietor, all the work in this project was done by me, Matthew Mejia. 
+Insight: It was fun to build this app using modern async/await, SwiftUI, and Swift 6. 
+Constraints: Time. I wish I could continue working on this, but I know I would just go down a rabbit hole trying make everything perfect. 
 
