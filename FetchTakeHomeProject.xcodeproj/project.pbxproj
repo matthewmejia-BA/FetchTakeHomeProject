@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		42E715552D63E58200509949 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = 42E715542D63E58200509949 /* Algorithms */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		42E715222D61491A00509949 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -71,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E715552D63E58200509949 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +127,6 @@
 			);
 			name = FetchTakeHomeProject;
 			packageProductDependencies = (
-				42E715542D63E58200509949 /* Algorithms */,
 			);
 			productName = FetchTakeHomeProject;
 			productReference = 42E715112D61491700509949 /* FetchTakeHomeProject.app */;
@@ -217,7 +211,6 @@
 			mainGroup = 42E715082D61491700509949;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				42E715532D63E58200509949 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 42E715122D61491700509949 /* Products */;
@@ -584,25 +577,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		42E715532D63E58200509949 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-algorithms.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		42E715542D63E58200509949 /* Algorithms */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 42E715532D63E58200509949 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
-			productName = Algorithms;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 42E715092D61491700509949 /* Project object */;
 }
