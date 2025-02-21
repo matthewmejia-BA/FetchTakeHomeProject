@@ -63,7 +63,8 @@ I wanted to use modern SwiftUI and with the latest Swift 6 version that helps wi
 I think my weakest part is Unit Testing. I don't have a ton of experience in that setting, although I am looking to dive deeper into it. I tried to implement a couple test cases: 1) Valid api / http response status code, and 2) Valid json data decoding. I would probably add another test case about caching of images.
 
 ## Additional Information: Is there anything else we should know? Feel free to share any insights or constraints you encountered.
-You will notice my repo and project is written by BrilyanteApps, which is my business. I am a sole proprietor, all the work in this project was done by me, Matthew Mejia. 
+You will notice in my project it shows that it was written by BrilyanteApps, which is my business. I am a sole proprietor, all the work in this project was done by me, Matthew Mejia. 
+
 Insight: It was fun to build this app using modern async/await, SwiftUI, and Swift 6. 
-Constraints: Time. I wish I could continue working on this, but I know I would just go down a rabbit hole trying make everything perfect. 
+Constraints: Time. I wish I could continue working on this, but I know I would just go down a rabbit hole trying make everything perfect (like UI aesthetics)
 
