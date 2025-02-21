@@ -66,5 +66,5 @@ I think my weakest part is Unit Testing. I don't have a ton of experience in tha
 You will notice in my project it shows that it was written by BrilyanteApps, which is my business. I am a sole proprietor, all the work in this project was done by me, Matthew Mejia. 
 
 Insight: It was fun to build this app using modern async/await, SwiftUI, and Swift 6. 
-Constraints: Time. I wish I could continue working on this, but I know I would just go down a rabbit hole trying make everything perfect. 
+Constraints: Time. I wish I could continue working on this, but I know I would just go down a rabbit hole trying make everything perfect (like UI aesthetics)
 
